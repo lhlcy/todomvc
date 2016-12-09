@@ -8,6 +8,7 @@
 		{id: 2, name: '敲代码', isCompleted: false},
 		{id: 3, name: '打豆豆', isCompleted: false}
 		];
+		//数据添加
 		$scope.newTask='';
 		$scope.add=function(){
 			var id=0;
@@ -22,6 +23,16 @@
 			}
 			$scope.todoList.push({id:id,name:$scope.newTask,isCompleted:false});
 			$scope.newTask="";
+		};
+	//	数据删除
+		$scope.remove=function(id){
+			for(var i=0;i<$scope.todoList.length;i++){
+				var temp=$scope.todoList[i];
+				if(temp.id==id){
+					$scope.todoList.splice(i,1);
+					return;
+				}
+			}
 		}
 	}])
 

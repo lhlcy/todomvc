@@ -42,6 +42,19 @@
 		$scope.save=function(){
 			$scope.updateID=-1;
 		};
+	//	切换任务选中的状态
+		$scope.isCheckedAll = false;
+		//$scope.$watch('isCheckedAll', function(newValue, oldValue){
+		//	if(newValue === oldValue) return;
+		//	for(var i = 0; i < $scope.todoList.length; i++) {
+		//		$scope.todoList[i].isCompleted = newValue;
+		//	}
+		//})
+		$scope.selectAll=function(){
+			for(var i=0;i<$scope.todoList.length;i++){
+				$scope.todoList[i].isCompleted=$scope.isCheckedAll;
+			}
+		};
 	}])
 
 })(angular);

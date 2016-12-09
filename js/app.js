@@ -55,6 +55,32 @@
 				$scope.todoList[i].isCompleted=$scope.isCheckedAll;
 			}
 		};
+		// 6 清除已完成任务
+		$scope.clearCompleted=function(){
+			var temp=[];
+			for(var i=0;i<$scope.todoList.length;i++){
+				var todo=$scope.todoList[i];
+				if(!todo.isCompleted){
+					temp.push(todo);
+				}
+			}
+			$scope.todoList = temp;
+			// 清除数组：
+			// $scope.todoList.length = 0;
+			// [].push.apply($scope.todoList, temp);
+			//todoList.push(...temp);//ES6
+		};
+		$scope.isShow = function() {
+			for(var i = 0; i < $scope.todoList.length; i++) {
+				var todo = $scope.todoList[i];
+				if(todo.isCompleted) {
+					// 说明 有已完成的任务，就返回：true，让按钮展示出来
+					return true;
+				}
+			}
+
+			return false;
+		};
 	}])
 
 })(angular);

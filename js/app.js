@@ -81,6 +81,16 @@
 
 			return false;
 		};
+		// 7 显示未完成任务数
+		$scope.getCount=function(){
+			var count=0;
+			$scope.todoList.forEach(function(value){
+				if(!value.isCompleted) {
+					count += 1;
+				}
+			});
+			return count;
+		}
 	}])
 
 })(angular);

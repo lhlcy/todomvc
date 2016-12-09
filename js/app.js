@@ -33,7 +33,15 @@
 					return;
 				}
 			}
-		}
+		};
+	//	修改数据
+		$scope.updateID=-1;
+		$scope.update=function(id){
+			$scope.updateID=id;
+		};
+		$scope.save=function(){
+			$scope.updateID=-1;
+		};
 	}])
 
 })(angular);

@@ -1,7 +1,7 @@
 (function (angular) {
 	'use strict';
 	var app=angular.module('todoApp',[]);
-	app.controller('myCtrl',['$scope',function($scope){
+	app.controller('myCtrl',['$scope','$location',function($scope,$location){
 		$scope.todoList=[
 		{id: 0, name: '吃饭', isCompleted: false},
 		{id: 1, name: '睡觉', isCompleted: true},
@@ -93,15 +93,32 @@
 		};
 	//	显示不同任务
 		$scope.status={};
-		$scope.checkAll=function(){
-			$scope.status={};
-		};
-		$scope.checkActive=function(){
-			$scope.status={isCompleted:false};
-		};
-		$scope.checkCompleted=function(){
-			$scope.status={isCompleted:true};
-		}
+		//$scope.checkAll=function(){
+		//	$scope.status={};
+		//};
+		//$scope.checkActive=function(){
+		//	$scope.status={isCompleted:false};
+		//};
+		//$scope.checkCompleted=function(){
+		//	$scope.status={isCompleted:true};
+		//};
+		$scope.location = $location;
+		$scope.$watch('location.url()', function(newValue, oldValue) {
+			switch(newValue) {
+				case '/':
+					$scope.status = {};
+					break;
+				case '/active':
+					$scope.status = {isCompleted: false};
+					break;
+				case '/completed':
+					$scope.status = {isCompleted: true};
+					break;
+				default:
+					$scope.status = {};
+					break;
+			}
+		})
 	}])
 
 })(angular);

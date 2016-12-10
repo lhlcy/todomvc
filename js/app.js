@@ -90,6 +90,17 @@
 				}
 			});
 			return count;
+		};
+	//	显示不同任务
+		$scope.status={};
+		$scope.checkAll=function(){
+			$scope.status={};
+		};
+		$scope.checkActive=function(){
+			$scope.status={isCompleted:false};
+		};
+		$scope.checkCompleted=function(){
+			$scope.status={isCompleted:true};
 		}
 	}])
 

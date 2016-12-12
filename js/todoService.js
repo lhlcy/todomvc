@@ -43,7 +43,7 @@
             for(var i=0;i<todoList.length;i++){
                 todoList[i].isCompleted=isCheckedAll;
             }
-        }
+        };
         //清楚已完成任务
         this.clearCompleted=function(){
             var temp=[];

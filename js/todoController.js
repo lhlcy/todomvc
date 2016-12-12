@@ -40,10 +40,13 @@
         $scope.selectAll=function(){
             todoSrv.selectAll();
         };
-        $scope.$watch('todoList',function(newValue,oldValue){
-            if(newValue===oldValue) return;
-            todoSrv.saveData($scope.isCheckedAll);
-        },true);
+        //$scope.$watch('todoList',function(newValue,oldValue){
+        //    if(newValue===oldValue) return;
+        //    todoSrv.saveData($scope.isCheckedAll);
+        //},true);
+		$scope.select=function(){
+			todoSrv.saveData();
+		};
         // 6 清除已完成任务
         $scope.clearCompleted=function(){
            todoSrv.clearCompleted();
@@ -62,7 +65,6 @@
                     return true;
                 }
             }
-
             return false;
         };
         // 7 显示未完成任务数
